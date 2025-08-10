@@ -1,0 +1,310 @@
+/* Reset & base */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Colors */
+:root {
+    --bg: #f5f7fa;
+    --text: #1f2937;
+    --card-bg: #ffffff;
+    --primary: #4f46e5;
+    /* Indigo */
+    --primary-hover: #4338ca;
+    --danger: #ef4444;
+    /* Red-500 */
+    --danger-hover: #dc2626;
+    --border: #e5e7eb;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --card-bg: #1f1f1f;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --border: #333;
+    --shadow: rgba(255, 255, 255, 0.1);
+}
+
+/* Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--card-bg);
+    box-shadow: 0 2px 8px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topbar h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--primary);
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.controls button {
+    margin-left: 10px;
+    padding: 8px 14px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    background-color: var(--primary);
+    box-shadow: 0 3px 6px var(--shadow);
+}
+
+.controls button:hover {
+    background-color: var(--primary-hover);
+}
+
+.controls button.danger {
+    background-color: var(--danger);
+    box-shadow: 0 3px 6px rgba(239, 68, 68, 0.4);
+}
+
+.controls button.danger:hover {
+    background-color: var(--danger-hover);
+}
+
+/* Layout */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Forms */
+.inline-form input,
+.expense-form input,
+.expense-form select {
+    padding: 10px 14px;
+    margin-right: 8px;
+    border-radius: 6px;
+    border: 1.5px solid var(--border);
+    font-size: 1rem;
+    outline-offset: 2px;
+    outline-color: transparent;
+    transition: outline-color 0.2s ease, border-color 0.2s ease;
+    background-color: var(--bg);
+    color: var(--text);
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.inline-form input:focus,
+.expense-form input:focus,
+.expense-form select:focus {
+    outline-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.inline-form button,
+.expense-form button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px var(--shadow);
+}
+
+.inline-form button:hover,
+.expense-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Budget stats */
+.budget-stats {
+    margin-top: 18px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.budget-stats div {
+    flex: 1;
+    min-width: 140px;
+}
+
+/* Table and scroll */
+.table-scroll {
+    max-height: 280px;
+    overflow-y: auto;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border-bottom: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+table th {
+    background-color: var(--bg);
+    font-weight: 700;
+    color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.small {
+    font-size: 0.85rem;
+}
+
+.danger {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(239, 68, 68, 0.4);
+}
+
+.danger:hover {
+    background-color: var(--danger-hover);
+}
+
+/* Chart */
+.chart-area {
+    height: 280px;
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .budget-stats {
+        flex-direction: column;
+    }
+
+    .controls button {
+        margin-left: 8px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+.history-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow);
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    min-width: 600px;
+}
+
+.history-table thead th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    padding: 12px 16px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.history-table tbody tr:nth-child(even) {
+    background-color: var(--bg);
+}
+
+.history-table tbody tr:hover {
+    background-color: var(--primary-hover);
+    color: white;
+    cursor: pointer;
+}
+
+.history-table tbody td {
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    color: var(--text);
+    transition: color 0.3s ease;
+    vertical-align: middle;
+}
+
+.history-table tbody td.actions {
+    text-align: center;
+}
+
+.history-table .small {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
